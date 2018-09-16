@@ -53,6 +53,15 @@ public class Player {
         	 if(direction != "Left") {
             direction="Right";}
         }
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_N)) {
+//  	Eat();
+        	NewTail();
+//        	Tail tail = null;
+//        	 tail = new Tail(this.xCoord+1,this.yCoord,handler);
+//        	 handler.getWorld().body.addLast(tail);
+//             handler.getWorld().playerLocation[tail.x][tail.y] = true;
+        }
+        	
 
     }
 
@@ -123,7 +132,10 @@ public class Player {
 
 
     }
-
+    public void NewTail() {
+    	Eat();
+      handler.getWorld().appleOnBoard=true;
+    }
     public void Eat(){
         lenght++;
         Tail tail= null;
