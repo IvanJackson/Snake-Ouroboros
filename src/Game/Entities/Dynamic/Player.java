@@ -53,13 +53,13 @@ public class Player {
         	 if(direction != "Left") {
             direction="Right";}
         }
+        
+        /*
+         * Created a new KeyEvent, event that is activated when a specific key is pressed, on the letter n
+         * If the N key is pressed, it activates NewTail(), which is explained below
+         */
         if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_N)) {
-//  	Eat();
-        	NewTail();
-//        	Tail tail = null;
-//        	 tail = new Tail(this.xCoord+1,this.yCoord,handler);
-//        	 handler.getWorld().body.addLast(tail);
-//             handler.getWorld().playerLocation[tail.x][tail.y] = true;
+        	NewTail();        	
         }
         	
 
@@ -132,6 +132,8 @@ public class Player {
 
 
     }
+    //This functions calls on Eat() but doesn't allow a new apple to be created
+    //NOt sure if bug in this specific code, but the creation of the new tail is kinda buggy
     public void NewTail() {
     	Eat();
       handler.getWorld().appleOnBoard=true;
