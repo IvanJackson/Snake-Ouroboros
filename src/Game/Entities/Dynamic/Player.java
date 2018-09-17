@@ -24,6 +24,7 @@ public class Player {
     public int yCoord;
 
     public int moveCounter;
+    public double mc = 5.2; //Changes the speed of snake
 
     public String direction;//is your first name one?
 
@@ -40,7 +41,7 @@ public class Player {
 
     public void tick(){
         moveCounter++;
-        if(moveCounter>=5) {
+        if(moveCounter>=mc) {//original if(moveCounter>=5)
             checkCollisionAndMove();
             moveCounter=0;
         }
@@ -72,6 +73,19 @@ public class Player {
         if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_P) || handler.getKeyManager().pbutt) {
         	State.setState(handler.getGame().pauseState);
         }
+        /*
+         * This allows the '+' and '=' key to speed up the snake
+         */
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_PLUS) || handler.getKeyManager().keyJustPressed(KeyEvent.VK_EQUALS)) {
+        	mc -= 0.5;
+        }
+        /*
+         * This allows the '-' key to slow down the snake
+         */
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_MINUS)) {
+        	mc += 0.5;
+        }
+        
         	
     }	
 

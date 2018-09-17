@@ -120,10 +120,8 @@ public class GameSetUp implements Runnable {
 
         //initiallizes everything in order to run without breaking
         init();
-        
-//By altering the fps and the timePerTick, one can change the speed of the snake
- //The original fps was 60, it was changed to 50 to slow down the snake
-        int fps = 50;
+ //The FPS was changed back to 60 in order to not break the game
+        int fps = 60;
         double timePerTick = 1000000000 / fps;
         double delta = 0;
         long now;
