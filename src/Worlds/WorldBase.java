@@ -58,6 +58,8 @@ public abstract class WorldBase {
             g.setColor(Color.ORANGE);
             g.drawLine(0, i, handler.getWidth() , i);
             g.drawLine(i,0,i,handler.getHeight());
+            g.setColor(Color.red);
+            g.drawString("Score:"+String.valueOf(player.lenght), handler.getWidth()-50,handler.getHeight()-750);
 
         }
 
