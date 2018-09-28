@@ -68,9 +68,9 @@ public class Player {
         }
         
         /*
-         * This allows the 'P' key or the 'escape' key to pause the game
+         * This allows the 'P' key and 'Esc' to pause the game
          */
-        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_P) || handler.getKeyManager().pbutt) {
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_P)||handler.getKeyManager().keyJustPressed(KeyEvent.VK_ESCAPE)) {
         	State.setState(handler.getGame().pauseState);
         }
         /*
