@@ -144,16 +144,20 @@ public class Player {
     public void SnakeCollision(){
     	switch(direction) {
     	case "Up":
-            if(handler.getWorld().playerLocation[xCoord][yCoord-1]==true){kill();}
+    		if(yCoord != 0) {
+            if(handler.getWorld().playerLocation[xCoord][yCoord-1]==true){kill();}}
               break;  
         case "Down":
-             if(handler.getWorld().playerLocation[xCoord][yCoord+1]==true){kill();}
+        	if(yCoord!=handler.getWorld().GridWidthHeightPixelCount-1){
+             if(handler.getWorld().playerLocation[xCoord][yCoord+1]==true){kill();}}
                break;
         case "Left":
-            if(handler.getWorld().playerLocation[xCoord-1][yCoord]==true){kill();}
+        	if(xCoord!=0) {
+            if(handler.getWorld().playerLocation[xCoord-1][yCoord]==true){kill();}}
               break;  
         case "Right":
-             if(handler.getWorld().playerLocation[xCoord+1][yCoord]==true){kill();}
+        	if(xCoord!=handler.getWorld().GridWidthHeightPixelCount-1) {
+             if(handler.getWorld().playerLocation[xCoord+1][yCoord]==true){kill();}}
                break;
                
     	}
