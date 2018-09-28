@@ -15,7 +15,7 @@ import Game.GameStates.State;
  * Created by AlexVR on 7/2/2018.
  */
 public class Player {
-
+	public int score;
     public int lenght;
     public boolean justAte;
     private Handler handler;
@@ -46,16 +46,16 @@ public class Player {
             moveCounter=0;
         }
         if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_UP) || handler.getKeyManager().up){
-            if(direction != "Down") {
+            if(direction != "Down"|| lenght == 1) {
         	direction="Up";}
         }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_DOWN) || handler.getKeyManager().down){
-        	 if(direction != "Up") {
+        	 if(direction != "Up"|| lenght == 1) {
             direction="Down";}
         }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_LEFT) || handler.getKeyManager().left){
-        	 if(direction != "Right") {
+        	 if(direction != "Right"|| lenght == 1) {
             direction="Left";}
         }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_RIGHT) || handler.getKeyManager().right){
-        	 if(direction != "Left") {
+        	 if(direction != "Left"|| lenght == 1) {
             direction="Right";}
         }
         
@@ -124,7 +124,7 @@ public class Player {
                 break;
         }
         handler.getWorld().playerLocation[xCoord][yCoord]=true;
-
+        
 
         if(handler.getWorld().appleLocation[xCoord][yCoord]){
             Eat();
@@ -160,10 +160,12 @@ public class Player {
     //NOt sure if bug in this specific code, but the creation of the new tail is kinda buggy
     public void NewTail() {
     	Eat();
+    	score--;
       handler.getWorld().appleOnBoard=true;
     }
     public void Eat(){
         lenght++;
+        score++;
         Tail tail= null;
         handler.getWorld().appleLocation[xCoord][yCoord]=false;
         handler.getWorld().appleOnBoard=false;

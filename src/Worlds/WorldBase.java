@@ -53,14 +53,14 @@ public abstract class WorldBase {
 
     public void render(Graphics g){
 
-        for (int i = 0; i <= 800; i = i + GridPixelsize) {
+        for (int i = 0; i <= 780; i = i + GridPixelsize) {
 
             g.setColor(new Color(28,37,65));
-            g.drawLine(0, i, handler.getWidth() , i);
-            g.drawLine(i,0,i,handler.getHeight());
+            g.drawLine(0, i, handler.getHeight() , i);
+            g.drawLine(i,0,i,handler.getWidth());
             g.setColor(new Color(255,255,255));
             g.setFont(new Font("Roboto", Font.BOLD, 20));
-            g.drawString("Score:"+String.valueOf(player.lenght), handler.getWidth()-100,handler.getHeight()-750);
+            g.drawString("Score:"+player.score, handler.getWidth()-100,handler.getHeight()-10);
 
         }
 
