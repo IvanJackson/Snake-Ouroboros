@@ -49,7 +49,7 @@ public class GameOverState extends State {
 
     @Override
     public void render(Graphics g) {
-        g.drawImage(Images.GameOver,0,0,800,450,null);
+        g.drawImage(Images.GameOver,0,0,800,800,null);
         uiManager.Render(g);
 
     }
