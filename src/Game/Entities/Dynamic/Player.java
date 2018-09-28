@@ -129,15 +129,35 @@ public class Player {
         if(handler.getWorld().appleLocation[xCoord][yCoord]){
             Eat();
         }
-
+        handler.getWorld().playerLocation[xCoord][yCoord]=false;
+        SnakeCollision();
+        handler.getWorld().playerLocation[xCoord][yCoord]=true;
+        
         if(!handler.getWorld().body.isEmpty()) {
             handler.getWorld().playerLocation[handler.getWorld().body.getLast().x][handler.getWorld().body.getLast().y] = false;
             handler.getWorld().body.removeLast();
             handler.getWorld().body.addFirst(new Tail(x, y,handler));
         }
+        
 
     }
-
+    public void SnakeCollision(){
+    	switch(direction) {
+    	case "Up":
+            if(handler.getWorld().playerLocation[xCoord][yCoord-1]==true){kill();}
+              break;  
+        case "Down":
+             if(handler.getWorld().playerLocation[xCoord][yCoord+1]==true){kill();}
+               break;
+        case "Left":
+            if(handler.getWorld().playerLocation[xCoord-1][yCoord]==true){kill();}
+              break;  
+        case "Right":
+             if(handler.getWorld().playerLocation[xCoord+1][yCoord]==true){kill();}
+               break;
+               
+    	}
+    }
     public void render(Graphics g,Boolean[][] playeLocation){
         Random r = new Random();
         for (int i = 0; i < handler.getWorld().GridWidthHeightPixelCount; i++) {
