@@ -98,6 +98,7 @@ public class Player {
                 if(xCoord==0){
                     kill();
                 }else{
+                	if(handler.getWorld().playerLocation[xCoord-1][yCoord]==true){kill();}
                     xCoord--;
                 }
                 break;
@@ -105,13 +106,16 @@ public class Player {
                 if(xCoord==handler.getWorld().GridWidthHeightPixelCount-1){
                     kill();
                 }else{
+                	if(handler.getWorld().playerLocation[xCoord+1][yCoord]==true){kill();}
                     xCoord++;
                 }
                 break;
             case "Up":
                 if(yCoord==0){
                     kill();
-                }else{
+                }
+                else{
+                	if(handler.getWorld().playerLocation[xCoord][yCoord-1]==true){kill();}
                     yCoord--;
                 }
                 break;
@@ -119,6 +123,7 @@ public class Player {
                 if(yCoord==handler.getWorld().GridWidthHeightPixelCount-1){
                     kill();
                 }else{
+                	if(handler.getWorld().playerLocation[xCoord][yCoord+1]==true){kill();}
                     yCoord++;
                 }
                 break;
@@ -130,7 +135,6 @@ public class Player {
             Eat();
         }
         handler.getWorld().playerLocation[xCoord][yCoord]=false;
-        SnakeCollision();
         handler.getWorld().playerLocation[xCoord][yCoord]=true;
         
         if(!handler.getWorld().body.isEmpty()) {
@@ -140,27 +144,6 @@ public class Player {
         }
         
 
-    }
-    public void SnakeCollision(){
-    	switch(direction) {
-    	case "Up":
-    		if(yCoord != 0) {
-            if(handler.getWorld().playerLocation[xCoord][yCoord-1]==true){kill();}}
-              break;  
-        case "Down":
-        	if(yCoord!=handler.getWorld().GridWidthHeightPixelCount-1){
-             if(handler.getWorld().playerLocation[xCoord][yCoord+1]==true){kill();}}
-               break;
-        case "Left":
-        	if(xCoord!=0) {
-            if(handler.getWorld().playerLocation[xCoord-1][yCoord]==true){kill();}}
-              break;  
-        case "Right":
-        	if(xCoord!=handler.getWorld().GridWidthHeightPixelCount-1) {
-             if(handler.getWorld().playerLocation[xCoord+1][yCoord]==true){kill();}}
-               break;
-               
-    	}
     }
     public void render(Graphics g,Boolean[][] playeLocation){
         Random r = new Random();
