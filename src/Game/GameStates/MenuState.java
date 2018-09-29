@@ -1,4 +1,6 @@
 package Game.GameStates;
+
+
 import Main.Handler;
 import Resources.Images;
 import UI.ClickListlener;
@@ -10,7 +12,6 @@ import java.awt.*;
 /**
  * Created by AlexVR on 7/1/2018.
  */
-
 public class MenuState extends State {
 
     private UIManager uiManager;
@@ -19,6 +20,7 @@ public class MenuState extends State {
         super(handler);
         uiManager = new UIManager(handler);
         handler.getMouseManager().setUimanager(uiManager);
+
 
         uiManager.addObjects(new UIImageButton(handler.getWidth()/2-64, handler.getHeight()/2-32, 128, 64, Images.butstart, new ClickListlener() {
             @Override
@@ -34,6 +36,7 @@ public class MenuState extends State {
     public void tick() {
         handler.getMouseManager().setUimanager(uiManager);
         uiManager.tick();
+
     }
 
     @Override
@@ -44,4 +47,6 @@ public class MenuState extends State {
         uiManager.Render(g);
 
     }
+
+
 }

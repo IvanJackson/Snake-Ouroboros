@@ -1,5 +1,7 @@
 package Resources;
+
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -8,19 +10,25 @@ import java.io.IOException;
  */
 public class Images {
 
+
     public static BufferedImage[] butstart;
     public static BufferedImage title;
     public static BufferedImage GameOver;
     public static BufferedImage Pause;
     public static BufferedImage[] Resume;
     public static BufferedImage[] BTitle;
+    public static BufferedImage[] Options;
+    public static ImageIcon icon;
+    
 
     public Images() {
 
         butstart = new BufferedImage[3];
         Resume = new BufferedImage[2];
         BTitle = new BufferedImage[2];
+        Options = new BufferedImage[2];
         
+
         try {
         	
             title = ImageIO.read(getClass().getResourceAsStream("/Sheets/Artboard.png"));
@@ -30,13 +38,18 @@ public class Images {
             Resume[1] = ImageIO.read(getClass().getResourceAsStream("/Buttons/ResumeC.png"));
             BTitle[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/BTitle.png"));
             BTitle[1] = ImageIO.read(getClass().getResourceAsStream("/Buttons/BTitleP.png"));
-            butstart[0]= ImageIO.read(getClass().getResourceAsStream("/Buttons/buttonStart.png"));
-            butstart[1]= ImageIO.read(getClass().getResourceAsStream("/Buttons/buttonStart hover.png"));
-            butstart[2]= ImageIO.read(getClass().getResourceAsStream("/Buttons/buttonStartClicked.png"));
+            butstart[0]= ImageIO.read(getClass().getResourceAsStream("/Buttons/buttonStart.png"));//normbut
+            butstart[1]= ImageIO.read(getClass().getResourceAsStream("/Buttons/buttonStart hover.png"));//hoverbut
+            butstart[2]= ImageIO.read(getClass().getResourceAsStream("/Buttons/buttonStartClicked.png"));//clickbut
+
+            icon =  new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/Sheets/icon.png")));
+
 
         }catch (IOException e) {
-        	e.printStackTrace();
-    	}
+        e.printStackTrace();
+    }
+
+
     }
 
     public static BufferedImage loadImage(String path) {
@@ -48,4 +61,5 @@ public class Images {
         }
         return null;
     }
+
 }

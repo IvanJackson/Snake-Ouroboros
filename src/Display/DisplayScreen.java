@@ -1,4 +1,5 @@
 package Display;
+
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -20,6 +21,9 @@ public class DisplayScreen {
         this.title = title;
         this.width = width;
         this.height = height;
+
+
+
         createDisplay();
     }
 
@@ -43,7 +47,11 @@ public class DisplayScreen {
         canvas.setMaximumSize(new Dimension(width, height));
         canvas.setMinimumSize(new Dimension(width, height));
         canvas.setFocusable(false);
+        
         canvas.setBackground(new Color(58,80,107));
+//        canvas.setBackground(Color(20,20,20));
+        
+        
         frame.add(canvas);
         frame.pack();
     }
@@ -55,4 +63,5 @@ public class DisplayScreen {
     public JFrame getFrame(){
         return frame;
     }
+
 }

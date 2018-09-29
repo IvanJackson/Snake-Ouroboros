@@ -32,6 +32,7 @@ public abstract class WorldBase {
     protected Apple apple;
     public Boolean[][] appleLocation;
 
+
     public Boolean[][] playerLocation;
 
     public LinkedList<Tail> body = new LinkedList<>();
@@ -39,11 +40,19 @@ public abstract class WorldBase {
 
     public WorldBase(Handler handler){
         this.handler = handler;
+
         appleOnBoard = false;
+
+
     }
-    public void tick(){}
+    public void tick(){
+
+
+
+    }
 
     public void render(Graphics g){
+
         for (int i = 0; i <= 780; i = i + GridPixelsize) {
 
             g.setColor(new Color(28,37,65));
@@ -54,5 +63,9 @@ public abstract class WorldBase {
             g.drawString("Score:"+player.score, handler.getWidth()-100,handler.getHeight()-10);
 
         }
+
+
+
     }
+
 }

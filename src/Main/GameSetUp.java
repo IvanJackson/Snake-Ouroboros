@@ -16,6 +16,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 
+
 /**
  * Created by AlexVR on 7/1/2018.
  */
@@ -24,10 +25,14 @@ public class GameSetUp implements Runnable {
     private DisplayScreen display;
     private int width, height;
     public String title;
+
     private boolean running = false;
     private Thread thread;
+
     private BufferStrategy bs;
     private Graphics g;
+
+
 
     //Input
     private KeyManager keyManager;
@@ -50,13 +55,16 @@ public class GameSetUp implements Runnable {
     private Clip audioClip;
 
     private BufferedImage loading;
+	
 
     public GameSetUp(String title, int width, int height){
+
         this.width = width;
         this.height = height;
         this.title = title;
         keyManager = new KeyManager();
         mouseManager = new MouseManager();
+
     }
 
     private void init(){
@@ -66,7 +74,12 @@ public class GameSetUp implements Runnable {
         display.getFrame().addMouseMotionListener(mouseManager);
         display.getCanvas().addMouseListener(mouseManager);
         display.getCanvas().addMouseMotionListener(mouseManager);
+
+        Images img = new Images();
+
+
         handler = new Handler(this);
+
         gameState = new GameState(handler);
         menuState = new MenuState(handler);
         pauseState = new PauseState(handler);
@@ -107,7 +120,10 @@ public class GameSetUp implements Runnable {
     }
 
     public void run(){
+
+        //initiallizes everything in order to run without breaking
         init();
+ //The FPS was changed back to 60 in order to not break the game
         int fps = 60;
         double timePerTick = 1000000000 / fps;
         double delta = 0;
@@ -138,12 +154,14 @@ public class GameSetUp implements Runnable {
         }
 
         stop();
+
     }
 
     private void tick(){
-
+        //checks for key types and manages them
         keyManager.tick();
-        
+
+        //game states are the menus
         if(State.getState() != null)
             State.getState().tick();
     }
@@ -155,12 +173,17 @@ public class GameSetUp implements Runnable {
             return;
         }
         g = bs.getDrawGraphics();
+        //Clear Screen
         g.clearRect(0, 0, width, height);
+
+        //Draw Here!
+
         g.drawImage(loading ,0,0,width,height,null);
-        
         if(State.getState() != null)
             State.getState().render(g);
 
+
+        //End Drawing!
         bs.show();
         g.dispose();
     }
