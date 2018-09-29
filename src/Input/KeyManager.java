@@ -14,21 +14,18 @@ public class KeyManager implements KeyListener {
 	public boolean up=false, down=false, left=false, right=false;
 	public boolean pbutt=false, nbutt=false;
 
-
 	public KeyManager(){
-
 		keys = new boolean[256];
 		justPressed = new boolean[keys.length];
 		cantPress = new boolean[keys.length];
-
 	}
 
 	public void tick(){
 		for(int i =0; i < keys.length;i++){
 			if(cantPress[i] && !keys[i]){
 				cantPress[i]=false;
-
-			}else if(justPressed[i]){
+			}
+			else if(justPressed[i]){
 				cantPress[i]=true;
 				justPressed[i] =false;
 			}
@@ -42,7 +39,6 @@ public class KeyManager implements KeyListener {
 		left = keys[KeyEvent.VK_A];
 		right = keys[KeyEvent.VK_D];
 		pbutt = keys[KeyEvent.VK_ESCAPE];
-
 	}
 
 	@Override

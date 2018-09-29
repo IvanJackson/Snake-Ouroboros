@@ -1,15 +1,14 @@
 package Game.GameStates;
-
 import Main.Handler;
 import Resources.Images;
 import UI.UIImageButton;
 import UI.UIManager;
-
 import java.awt.*;
 
 /**
  * Created by AlexVR on 7/1/2018.
  */
+
 public class GameOverState extends State {
 
     private int count = 0;
@@ -29,11 +28,6 @@ public class GameOverState extends State {
             handler.getMouseManager().setUimanager(null);
             State.setState(handler.getGame().menuState);
         }));
-
-
-
-
-
     }
 
     @Override
@@ -44,8 +38,6 @@ public class GameOverState extends State {
         if( count>=30){
             count=30;
         }
-
-
     }
 
     @Override

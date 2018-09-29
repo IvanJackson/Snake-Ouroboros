@@ -1,10 +1,8 @@
 package Game.GameStates;
-
 import Main.Handler;
 import Resources.Images;
 import UI.UIImageButton;
 import UI.UIManager;
-
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
@@ -46,14 +44,11 @@ public class PauseState extends State {
 
             State.setState(handler.getGame().gameState);
         }
-
-
     }
 
     @Override
     public void render(Graphics g) {
         g.drawImage(Images.Pause,0,0,800,800,null);
         uiManager.Render(g);
-
     }
 }

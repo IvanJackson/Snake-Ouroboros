@@ -21,7 +21,6 @@ public abstract class UIObject {
         this.x=x;
         this.y=y;
         bounds = new Rectangle((int)x,(int)y,width,height);
-
     }
 
     public abstract void tick();
@@ -33,14 +32,13 @@ public abstract class UIObject {
         active=true;
     }
 
-
-
     public void onMouseMove(MouseEvent e){
         if(bounds.contains(e.getX(),e.getY())){
             hovering=true;
         }else hovering=false;
 
     }
+    
     public void onMouseRelease(MouseEvent e){
 
         if(hovering&& e.getButton()==MouseEvent.BUTTON1){
@@ -49,13 +47,6 @@ public abstract class UIObject {
         active=false;
 
     }
-
-
-
-
-
-//get set
-
 
     public int getWidth() {
         return width;
