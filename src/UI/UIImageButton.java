@@ -16,10 +16,8 @@ public class UIImageButton extends UIObject{
         this.clicker=clicker;
     }
 
-
     @Override
     public void tick() {
-
     }
 
     @Override
@@ -36,7 +34,6 @@ public class UIImageButton extends UIObject{
 
         }
     }
-
 
     @Override
     public void onClick()

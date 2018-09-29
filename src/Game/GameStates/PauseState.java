@@ -46,14 +46,11 @@ public class PauseState extends State {
 
             State.setState(handler.getGame().gameState);
         }
-
-
     }
 
     @Override
     public void render(Graphics g) {
         g.drawImage(Images.Pause,0,0,800,800,null);
         uiManager.Render(g);
-
     }
 }

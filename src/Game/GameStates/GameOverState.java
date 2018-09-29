@@ -29,11 +29,6 @@ public class GameOverState extends State {
             handler.getMouseManager().setUimanager(null);
             State.setState(handler.getGame().menuState);
         }));
-
-
-
-
-
     }
 
     @Override
@@ -44,8 +39,6 @@ public class GameOverState extends State {
         if( count>=30){
             count=30;
         }
-
-
     }
 
     @Override

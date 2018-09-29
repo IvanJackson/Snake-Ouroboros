@@ -36,7 +36,6 @@ public class MenuState extends State {
     public void tick() {
         handler.getMouseManager().setUimanager(uiManager);
         uiManager.tick();
-
     }
 
     @Override
@@ -45,8 +44,5 @@ public class MenuState extends State {
         g.fillRect(0,0,handler.getWidth(),handler.getHeight());
         g.drawImage(Images.title,0,0,handler.getWidth(),handler.getHeight(),null);
         uiManager.Render(g);
-
     }
-
-
 }

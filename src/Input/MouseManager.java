@@ -55,7 +55,6 @@ public class MouseManager implements MouseListener,MouseMotionListener{
         if(uimanager !=null){
             uimanager.onMousePressed(e);
         }
-
     }
 
     @Override

@@ -1,14 +1,8 @@
 package Game.Entities.Dynamic;
 
-
-import Main.GameSetUp;
 import Main.Handler;
-
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.util.Random;
-
-import Game.GameStates.PauseState;
 import Game.GameStates.State;
 
 /**
@@ -24,9 +18,9 @@ public class Player {
     public int yCoord;
 
     public int moveCounter;
-    public double mc = 5.2; //Changes the speed of snake
+    public double mc = 5.2;
 
-    public String direction;//is your first name one?
+    public String direction;
 
     public Player(Handler handler){
         this.handler = handler;
@@ -41,7 +35,7 @@ public class Player {
 
     public void tick(){
         moveCounter++;
-        if(moveCounter>=mc) {//original if(moveCounter>=5)
+        if(moveCounter>=mc) {
             checkCollisionAndMove();
             moveCounter=0;
         }
@@ -58,35 +52,22 @@ public class Player {
         	 if(direction != "Left"|| lenght == 1) {
             direction="Right";}
         }
-        
-        /*
-         * Created a new KeyEvent, event that is activated when a specific key is pressed, on the letter n
-         * If the N key is pressed, it activates NewTail(), which is explained below
-         */
+
         if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_N)) {
         	NewTail();        	
         }
         
-        /*
-         * This allows the 'P' key and 'Esc' to pause the game
-         */
         if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_P)||handler.getKeyManager().keyJustPressed(KeyEvent.VK_ESCAPE)) {
         	State.setState(handler.getGame().pauseState);
         }
-        /*
-         * This allows the '+' and '=' key to speed up the snake
-         */
+
         if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_PLUS) || handler.getKeyManager().keyJustPressed(KeyEvent.VK_EQUALS)) {
         	mc -= 0.5;
         }
-        /*
-         * This allows the '-' key to slow down the snake
-         */
+
         if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_MINUS)) {
         	mc += 0.5;
-        }
-        
-        	
+        } 	
     }	
 
     public void checkCollisionAndMove(){
@@ -142,11 +123,8 @@ public class Player {
             handler.getWorld().body.removeLast();
             handler.getWorld().body.addFirst(new Tail(x, y,handler));
         }
-        
-
     }
     public void render(Graphics g,Boolean[][] playeLocation){
-        Random r = new Random();
         for (int i = 0; i < handler.getWorld().GridWidthHeightPixelCount; i++) {
             for (int j = 0; j < handler.getWorld().GridWidthHeightPixelCount; j++) {
                 g.setColor(new Color(138,170,121));
@@ -158,21 +136,17 @@ public class Player {
                             handler.getWorld().GridPixelsize);
                 }
                 g.setColor(new Color(237,106,90));
+                
                 if(handler.getWorld().appleLocation[i][j]){
                     g.fillRect((i*handler.getWorld().GridPixelsize),
                             (j*handler.getWorld().GridPixelsize),
                             handler.getWorld().GridPixelsize,
                             handler.getWorld().GridPixelsize);
                 }
-
-
             }
         }
-
-
     }
-    //This functions calls on Eat() but doesn't allow a new apple to be created
-    //NOt sure if bug in this specific code, but the creation of the new tail is kinda buggy
+
     public void NewTail() {
     	Eat();
     	score--;
@@ -283,6 +257,7 @@ public class Player {
                 }
                 break;
         }
+        
         handler.getWorld().body.addLast(tail);
         handler.getWorld().playerLocation[tail.x][tail.y] = true;
     }

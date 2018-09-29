@@ -3,7 +3,6 @@ package Input;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-
 /**
  * Created by AlexVR on 7/1/2018.
  */
@@ -14,13 +13,11 @@ public class KeyManager implements KeyListener {
 	public boolean up=false, down=false, left=false, right=false;
 	public boolean pbutt=false, nbutt=false;
 
-
 	public KeyManager(){
 
 		keys = new boolean[256];
 		justPressed = new boolean[keys.length];
 		cantPress = new boolean[keys.length];
-
 	}
 
 	public void tick(){
