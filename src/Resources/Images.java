@@ -34,8 +34,8 @@ public class Images {
             title = ImageIO.read(getClass().getResourceAsStream("/Sheets/Artboard.png"));
             Pause = ImageIO.read(getClass().getResourceAsStream("/Sheets/Pause.png"));
             GameOver = ImageIO.read(getClass().getResourceAsStream("/Sheets/Game Over.png"));
-            Resume[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/Resume.png"));
-            Resume[1] = ImageIO.read(getClass().getResourceAsStream("/Buttons/ResumeP.png"));
+            Resume[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/ResumeU.png"));
+            Resume[1] = ImageIO.read(getClass().getResourceAsStream("/Buttons/ResumeC.png"));
             BTitle[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/BTitle.png"));
             BTitle[1] = ImageIO.read(getClass().getResourceAsStream("/Buttons/BTitleP.png"));
             Options[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/Options.png"));
